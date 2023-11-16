@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Uploaded Excel Sheets</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> 
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-dark" style="background-color: #232F3E">
+            <div class="container justify-content-center">
+                <div class="color-overlay"></div>
+                <img src="amazon-logo.png" alt="Amazon_logo" class="amzn-logo">
+                <a class="navbar-brand" href="#">Swaps Validator Tool</a>
+            </div>
+        </nav>
+    </header>
+        <div>
+        <button type="button" class="btn btn-primary" onclick="uploadFile()">Upload</button>
+    </div>
+
+    <div id="fileList" class="d-flex justify-content-center mt-4">
+        <!-- Display the list of uploaded Excel sheets here -->
+    </div>
+
+    <div class="footer">
+        <p>Project Manager: Mohamed Salah (moesalah)</p>
+        <p>Developed by: Osama Abdelrahman (osoabdel)</p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="myscripts.js"></script>
+    
+    <script>
+        // Function to display the uploaded files
+        function displayFiles() {
+            const fileList = document.getElementById('fileList');
+            fileList.innerHTML = '';
+
+            // Assuming you have an array of file names
+            const fileNames = ["File 1.xlsx", "File 2.xlsx"]; // Replace with actual file names
+
+            fileNames.forEach((fileName, index) => {
+                const listItem = document.createElement('div');
+                listItem.className = 'file-item';
+                listItem.innerHTML = `
+                    <span class="file-name">${fileName}</span>
+                    <button class="btn btn-sm btn-primary mr-2" onclick="viewFile('${fileName}')">View</button>
+                    <button class="btn btn-sm btn-primary mr-2" onclick="downloadFile('${fileName}')">Download</button>
+                    <button class="btn btn-sm btn-danger" onclick="deleteFile('${fileName}')">Delete</button>
+                `;
+                fileList.appendChild(listItem);
+            });
+        }
+
+        // Function to simulate viewing a file
+        function viewFile(fileName) {
+            alert(`Viewing: ${fileName}`);
+        }
+
+        // Function to simulate downloading a file
+        function downloadFile(fileName) {
+            alert(`Downloading: ${fileName}`);
+        }
+
+        // Function to simulate deleting a file
+        function deleteFile(fileName) {
+            alert(`Deleting: ${fileName}`);
+        }
+
+        // Function to upload a file (you will need server-side code for this)
+        function uploadFile() {
+            alert('Upload file functionality will be implemented.');
+        }
+
+        // Display the uploaded files when the page loads
+        displayFiles();
+    </script>
+</body>
+</html>
